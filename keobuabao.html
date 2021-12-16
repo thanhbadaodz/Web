@@ -67,17 +67,19 @@
 	<link rel="stylesheet" href="Main.css">
 	<title>hihi</title>
 	<body>
-		<p>Bạn: <span id="You">100000</span>$</p>
-		<p>Máy: <span id="Computer">100000</span>$</p>
-		<label>Mức Cược:<input type="number" id="Bet" value="1000" onchange="CheckBet()" oninput="CheckBet()">$</label>
-		<div id="vungchon">
-			<button type="button" onclick="KeoBuaBao('Kéo')">Kéo</button>
-			<button type="button" onclick="KeoBuaBao('Búa')">Búa</button>
-			<button type="button" onclick="KeoBuaBao('Bao')">Bao</button>
+		<div style="margin: auto;text-align: center;">
+			<p>Bạn: <span id="You">100000</span>$</p>
+			<p>Máy: <span id="Computer">100000</span>$</p>
+			<label>Mức Cược:<input type="number" id="Bet" value="1000" onchange="CheckBet()" oninput="CheckBet()">$</label>
+			<div id="vungchon">
+				<button style="padding: 10%;" type="button" onclick="KeoBuaBao('Kéo')">Kéo</button>
+				<button style="padding: 10%;" onclick="KeoBuaBao('Búa')">Búa</button>
+				<button style="padding: 10%;" onclick="KeoBuaBao('Bao')">Bao</button>
+			</div>
+			<p id="Result"></p>
 		</div>
-		<p id="Result"></p>
 	</body>
 	<footer>
-		<p>Thời Gian Hiện Tại:<span id="Time" onload="Time()">null</span></p>
+		<p style="text-align: center;">Thời Gian Hiện Tại:<span id="Time" onload="Time()">null</span></p>
 	</footer>
 </html>
