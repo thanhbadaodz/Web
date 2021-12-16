@@ -1,0 +1,42 @@
+<html>
+  <body>
+    <script>
+      function Random_Position(){
+        switch(Math.round(Math.random()*10)){
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+          case 9:
+            document.getElementById("Button").style.padding= String(Math.random()*123)+"px"
+            document.getElementById("Button").style.margin= `${String(Math.random()*90)}% ${String(Math.random()*90)}% ${String(Math.random()*180)}% ${String(Math.random()*180)}%`
+            document.getElementById("Button").innerText= `${String(Random_String())}`
+            break
+          case 10:
+            alert("Địt Mẹ Mày")
+        }
+      }
+
+      function Random_String(){
+        Random_List=[
+          "Đố Anh Bắt Được Em",
+          "Không Bắt Được Làm Chó",
+          "Tuổi Gì Chạm Vào",
+          "HIHIHIIHIHIHIH",
+          "Mèo Méo Meo Mèo Meo",
+          "Sắp Có Điều Bất Ngờ Rồi",
+          "Cố Click Thêm Vài Lần Nữa",
+          "HMMMM......."
+        ]
+        return Random_List[~~parseInt(Math.random()*8)]
+      }
+    </script>
+    <div style="width: 50%;">
+      <button id="Button" type="submit" onclick="Random_Position()">Đố Anh Bắt Được Em</button>
+    </div>
+  </body>
+</html>
