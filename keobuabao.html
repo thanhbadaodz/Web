@@ -1,0 +1,83 @@
+<html>
+	<script>
+		function KeoBuaBao(A) {
+	//Bat Dau
+			var May = ["Kéo","Búa","Bao"]
+			May = May[Math.floor(Math.random()*3)]
+			var KetQua = 'Bạn : ' + A +'\n Máy : '+ May
+			if (A == May){
+				KetQua = KetQua +'\n Hòa';
+			}
+			else{
+				//So Tien
+				Bet=document.getElementById("Bet").value
+				Your_Money=document.getElementById("You").innerHTML
+				Computer_Money=document.getElementById("Computer").innerHTML
+				switch(String(A+' '+May)){
+					case 'Kéo Búa':
+					case 'Búa Bao':
+					case 'Bao Kéo':
+						KetQua = KetQua +'\n Thua';
+						document.getElementById("You").innerHTML = parseInt(Your_Money)-parseInt(Bet)
+						document.getElementById("Computer").innerHTML = parseInt(Computer_Money)+parseInt(Bet)
+						break;
+					case 'Búa Kéo':
+					case 'Bao Búa':
+					case 'Kéo Bao':
+						KetQua = KetQua +'\n Thắng';
+						document.getElementById("You").innerHTML = parseInt(Your_Money)+parseInt(Bet)
+						document.getElementById("Computer").innerHTML = parseInt(Computer_Money)-parseInt(Bet)
+				}
+			}
+			document.getElementById("Result").innerHTML = KetQua;
+		}
+		function CheckBet(){
+			Bet = document.getElementById("Bet")
+			if(Max(0,Min(Bet.value,1)) == 0){
+				Bet.value = 1
+			}
+		}
+		function so_ngay_sinh(){
+			birth_day = document.getElementById("birth_day").value
+			String(console.log(birth_day)).split('-').get[1]
+		}
+		function Min(A,B){
+			return A>=B?B:A
+		}
+		function Max(A,B){
+			return A>=B?A:B
+		}
+		function 税込み計算(){
+			kingaku=parseInt(document.getElementById("kingaku").innerHTML)
+			zeiritsu=parseInt(document.getElementById("zeiritsu").innerHTML)/10
+			document.getElementById("kekka").innerHTML = String(kingaku*(zeiritsu+1)||0)+"円"
+		}
+		function Time(){
+			Now=new Date()
+			y= Now.getFullYear()
+			m= Now.getMonth()+1
+			d= Now.getDate()
+			return String(`${y}/${m}/${d} ${Now.toLocaleTimeString()}`)
+		}
+		window.onload=function(){
+			setInterval('document.getElementById("Time").innerHTML = Time()',100)
+		}
+
+	</script>
+	<link rel="stylesheet" href="Main.css">
+	<title>hihi</title>
+	<body>
+		<p>Bạn: <span id="You">100000</span>$</p>
+		<p>Máy: <span id="Computer">100000</span>$</p>
+		<label>Mức Cược:<input type="number" id="Bet" value="1000" onchange="CheckBet()" oninput="CheckBet()">$</label>
+		<div id="vungchon">
+			<button type="button" onclick="KeoBuaBao('Kéo')">Kéo</button>
+			<button type="button" onclick="KeoBuaBao('Búa')">Búa</button>
+			<button type="button" onclick="KeoBuaBao('Bao')">Bao</button>
+		</div>
+		<p id="Result"></p>
+	</body>
+	<footer>
+		<p>Thời Gian Hiện Tại:<span id="Time" onload="Time()">null</span></p>
+	</footer>
+</html>
